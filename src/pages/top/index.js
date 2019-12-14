@@ -8,6 +8,10 @@ class CustomElement extends LitElement {
     return 'a100-page-top';
   }
 
+  static get path() {
+    return '/';
+  }
+
   static get styles() {
     return [style];
   }
@@ -54,7 +58,10 @@ class CustomElement extends LitElement {
           </div>
         </div>
       </div>
-      <a100-button label="はじめる"></a100-button>
+      <a href="/list">
+        <a100-button label="はじめる"></a100-button>
+      </a>
+
     `
   }
 
