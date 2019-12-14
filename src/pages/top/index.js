@@ -25,7 +25,7 @@ class CustomElement extends LitElement {
             <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
           </div>
           <div class="main__item">
-            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
+            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fagemono.jpg?alt=media&token=a4fa3dd5-4d43-4ef6-8244-b64f7ae3581a">
           </div>
           <div class="main__item">
             <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
