@@ -7,11 +7,11 @@ import style from './index.gen.css';
 
 class CustomElement extends LitElement {
   static get is() {
-    return 'a100-page-list';
+    return 'a100-page-store';
   }
 
   static get path() {
-    return '/list';
+    return '/store';
   }
 
   static get styles() {
@@ -24,18 +24,22 @@ class CustomElement extends LitElement {
       {
         title: "一蘭(ラーメン)",
         status: "open",
+        id: 1,
       },
       {
         title: "会議室-20",
         status: "open",
+        id:2,
       },
       {
         title: "芥川龍之介",
         status: "close",
+        id:3,
       },
       {
         title: "お店の名前です",
         status: undefined,
+        id:4,
       },
     ]
 
@@ -43,7 +47,13 @@ class CustomElement extends LitElement {
       <a100-title label="一覧"></a100-title>
       <div class="list">
         ${items.map((item) => html`
-          <a100-list-item label="${item.title}" status="${item.status}"></a100-list-item>
+          <a href="/sheet">
+            <a100-list-item
+              label="${item.title}"
+              status="${item.status}"
+              >
+            </a100-list-item>
+          </a>
         `)}
       </div>
     `
