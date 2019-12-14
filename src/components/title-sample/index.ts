@@ -3,7 +3,7 @@ import {
 } from 'lit-element';
 import style from './index.gen.css'
 
-@customElement('a100-title')
+@customElement('a100-title-sample')
 export class a100Title extends LitElement {
   @property({type: String}) name = '';
 
