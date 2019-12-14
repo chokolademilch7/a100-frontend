@@ -23,11 +23,15 @@ class CustomElement extends LitElement {
     this.label = "";
     this.backgroundColor = "";
     this.color = "";
-    this.addEventListener("touchstart", () => {
-      this.classList.add('clicked');
+  }
+
+  updated(){
+    const button = this.shadowRoot.querySelector('.button');
+    button.addEventListener("touchstart", () => {
+      button.classList.add('clicked');
     })
-    this.addEventListener("touchend", () => {
-      this.classList.remove('clicked');
+    button.addEventListener("touchend", () => {
+      button.classList.remove('clicked');
     })
   }
 

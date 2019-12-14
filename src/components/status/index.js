@@ -32,6 +32,8 @@ class CustomElement extends LitElement {
           'stauts-label': true,
           'stauts-label--closed': status==="close",
           'stauts-label--opened': status==="open",
+          'stauts-label--full': status==="full",
+          'stauts-label--reserved': status==="reserved",
         })}" 
         style="font-size:${fontSize}"
       >
