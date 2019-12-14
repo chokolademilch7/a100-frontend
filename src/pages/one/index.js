@@ -18,32 +18,35 @@ class CustomElement extends LitElement {
     return [style];
   }
 
-  render() {
-    const data ={
+  constructor() {
+    super();
+    this.data = {
       store: "一蘭(ラーメン)",
-      title: "1卓",
+      sheet: "1卓",
       status: "open",
-      favorite: false
+      favorite: true
     };
-    const color = data.favorite ? "#f2a55f" : "#888"
+  }
+
+  render() {
+    const { data } = this;
     return html`
-      <a100-title label="詳細"></a100-title>
-      <div class="sheetTitle">${data.store}</div>
-      <div class="sheetTitle">${data.title}</div>
+      <a100-title label="${data.store}"></a100-title>
+      <div class="sheetTitle">${data.sheet}</div>
       <a100-status status="open" font-size="40px"></a100-status>
       <div class="flex">
         <a100-button
-          label="予約"
-          a100-background-color="#00ac97"
+          label = "予約"
+          a100-background-color = "#00ac97"
         ></a100-button>
         <div class="star">
-          ${this.renderStar(color)}
+          ${this.renderStar()}
         </div>
       </div>
     `
   }
 
-  renderStar(color){
+  renderStar(){
     return svg`
       <svg 
         version="1.0"
@@ -57,7 +60,7 @@ class CustomElement extends LitElement {
         </metadata>
         <g
           transform="translate(0.000000,1226.000000) scale(0.100000,-0.100000)"
-          fill="${color}"
+          fill="#f2a55f"
           stroke="none"
         >
           <path d="M5748 11533 c-190 -401 -599 -1261 -908 -1913 -310 -652 -564 -1187
