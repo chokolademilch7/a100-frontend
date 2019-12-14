@@ -1,4 +1,3 @@
-import fs from 'fs';
 import commonjs from 'rollup-plugin-commonjs';
 import style from 'rollup-plugin-lit-html-style';
 import livereload from 'rollup-plugin-livereload';
@@ -8,24 +7,11 @@ import typescript from 'rollup-plugin-typescript2';
 
 const production = !process.env.ROLLUP_WATCH;
 
-const inputFiles = (dir, expands) => {
-  const regex = new RegExp(expands.map(epd => `${epd}$`).join('|'));
-  return fs.readdirSync(dir).filter(fn => fn.match(regex)).map(fn => `${dir}/${fn}`);
-}
-
-const inputDir = (dir, expands) => {
-  let ret = {};
-  fs.readdirSync(dir).forEach(dirname => {
-    ret[dirname] = inputFiles(`${dir}/${dirname}`, expands)[0];
-  });
-  return ret;
-}
-
 export default {
-  input: inputDir('src/pages', ['.js', '.ts']),
+  input: ['src/app/index.js'],
   output: {
     dir: 'public/build',
-    entryFileNames: 'a100-[name].mjs',
+    entryFileNames: 'bundle.mjs',
     format: 'esm'
   },
   plugins: [
