@@ -13,7 +13,7 @@ class CustomElement extends LitElement {
   static get properties() {
     return {
       label: { type: String, reflect: true },
-      backGroundColor: { type: String, reflect: true, attribute: "a100-background-color" },
+      backgroundColor: { type: String, reflect: true, attribute: "a100-background-color" },
       color: { type: String, reflect: true, attribute: "a100-color" },
     };
   }
@@ -21,17 +21,17 @@ class CustomElement extends LitElement {
   constructor() {
     super();
     this.label = "";
-    this.backGroundColor = "";
+    this.backgroundColor = "";
     this.color = "";
   }
 
   render() {
-    const { label, backGroundColor, color } = this;
+    const { label, backgroundColor, color } = this;
     return html`
       <div
         class="button"
         style="
-        background-color: ${backGroundColor};
+        background-color: ${backgroundColor};
         color: ${color};
       ">
         ${label}
