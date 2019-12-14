@@ -2,6 +2,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import firebaseConfig from '../../env';
 
+
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
 
