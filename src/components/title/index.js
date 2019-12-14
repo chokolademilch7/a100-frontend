@@ -1,23 +1,30 @@
-import '../../components/button-sample';
-import '../../components/button';
-
-
 import { LitElement, html } from 'lit-element';
 import style from './index.gen.css';
 
 class CustomElement extends LitElement {
   static get is() {
-    return 'a100-page-home';
+    return 'a100-title';
   }
 
   static get styles() {
     return [style];
   }
 
+  static get properties() {
+    return {
+      label: { type: String, reflect: true }
+    };
+  }
+
+  constructor() {
+    super();
+    this.label = '';
+  }
+
   render() {
+    const {label} = this;
     return html`
-      <a100-button-sample></a100-button-sample>
-      <a100-button label="testボタン"></a100-button>
+      <div>${label}</div>
     `
   }
 }
