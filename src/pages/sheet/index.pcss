@@ -1,19 +1,23 @@
 @import "../../tools/all.pcss";
 
+a100-title {
+  margin-bottom: 30px;
+}
+
 .list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   animation: fadeIn 1.5s ease;
 }
 
 .list-item {
+  flex-grow: 1;
   display: block;
   color: $black;
-  flex-grow: 1;
-  margin: 20px;
+  margin: 0 16px 30px;
   padding: 10px;
-  min-width: 200px;
-  max-width: 290px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.26)
+  flex-basis: 210px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.26);
+  border-radius: 10px;
 }

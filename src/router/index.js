@@ -4,6 +4,7 @@ import store from '../pages/store';
 import one from '../pages/one';
 import sample from '../pages/sample';
 import sheet from '../pages/sheet';
+import login from '../pages/login';
 
 
 
@@ -12,7 +13,8 @@ const pages = [
   store,
   one,
   sample,
-  sheet
+  sheet,
+  login
 ];
 
 const pagesRouters = pages.map(page => {
