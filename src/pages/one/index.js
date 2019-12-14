@@ -24,7 +24,7 @@ class CustomElement extends LitElement {
       <a100-status status="open" font-size="40px"></a100-status>
       <a100-button
         label="予約"
-        a100-back-ground-color="#00ac97"
+        a100-background-color="#00ac97"
       ></a100-button>
     `
   }
