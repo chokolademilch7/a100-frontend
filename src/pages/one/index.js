@@ -20,28 +20,28 @@ class CustomElement extends LitElement {
 
   static get properties() {
     return {
-      favorite: { type: Boolean, reflect: true },
+      __favorite: { type: Boolean, reflect: true },
     };
   }
 
   constructor() {
     super();
-    this.__data = {
+    this.data = {
       store: "一蘭(ラーメン)",
       sheet: "1卓",
       status: "open",
       favorite: true
     };
-    this.favorite = '';
+    this.__favorite = false;
   }
 
   render() {
-    const { __data, favorite } = this;
+    const { data, __favorite } = this;
     const onStar = this.renderOnStar();
     const offStar = this.renderOffStar();
     return html`
-      <a100-title label="${__data.store}"></a100-title>
-      <div class="sheetTitle">${__data.sheet}</div>
+      <a100-title label="${data.store}"></a100-title>
+      <div class="sheetTitle">${data.sheet}</div>
       <a100-status status="open" font-size="40px"></a100-status>
       <div class="flex">
         <a100-button
@@ -49,7 +49,7 @@ class CustomElement extends LitElement {
           a100-background-color = "#00ac97"
         ></a100-button>
         <div class="star" @click="${this.starClick}">
-          ${cache(favorite
+          ${cache(__favorite
             ? onStar()
             : offStar()
           )}
@@ -127,7 +127,7 @@ class CustomElement extends LitElement {
   }
 
   starClick(){
-    this.favorite = !this.favorite;
+    this.__favorite = !this.__favorite;
   }
 }
 
