@@ -12,7 +12,8 @@ export default {
   output: {
     dir: 'public/build',
     entryFileNames: 'bundle.mjs',
-    format: 'esm'
+    format: 'esm',
+    sourcemap: true
   },
   plugins: [
     style({
