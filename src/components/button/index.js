@@ -24,15 +24,10 @@ class CustomElement extends LitElement {
   render() {
     const { label } = this;
     return html`
-      <div class="button" @click="${this.buttonClick}">
+      <div class="button">
         ${label}
       </div>
     `
-  }
-
-  buttonClick(e) {
-    const button = e.currentTarget;
-    console.log(e.currentTarget);
   }
 }
 
