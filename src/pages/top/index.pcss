@@ -1,12 +1,9 @@
 @import "../../tools/helper.pcss";
 @import "../../tools/color.pcss";
 
-.test {
-  color: $orange;
-}
-
 .title {
   margin: 40px 0 30px;
+  animation: fadeIn 1.5s ease;
 }
 
 .title__main {
@@ -28,6 +25,7 @@
   display: flex;
   width: 80%;
   margin: 0 auto 4%;
+  animation: fadeIn 6s ease;
 }
 
 .main__contents {
@@ -47,8 +45,36 @@
   object-fit: cover;
 }
 
+.button {
+  animation: buttonFadeIn 2s ease;
+}
+
 a100-button {
   display: block;
   width: 200px;
   margin: 0 auto;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes buttonFadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
