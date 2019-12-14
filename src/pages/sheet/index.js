@@ -37,7 +37,7 @@ class CustomElement extends LitElement {
         title: "4卓",
         status: undefined,
       },
-    ]
+    ];
 
     return html`
       <a100-title label="一覧"></a100-title>

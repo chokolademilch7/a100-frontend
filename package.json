@@ -36,6 +36,7 @@
   },
   "dependencies": {
     "@vaadin/router": "^1.5.2",
+    "firebase": "^7.6.0",
     "lit-element": "^2.2.1",
     "lit-html": "^1.1.2",
     "mout": "^1.2.2",
