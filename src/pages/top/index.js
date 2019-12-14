@@ -1,4 +1,4 @@
-import '../../components/button-sample';
+import '../../components/button';
 
 import { LitElement, html, svg } from 'lit-element';
 import style from './index.gen.css';
@@ -54,6 +54,7 @@ class CustomElement extends LitElement {
           </div>
         </div>
       </div>
+      <a100-button label="はじめる"></a100-button>
     `
   }
 
