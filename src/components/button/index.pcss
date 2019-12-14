@@ -8,3 +8,9 @@
   color: $white;
   text-align: center;
 }
+
+:host([class="clicked"]) .button {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);/*下に動く*/
+  box-shadow: none;
+}

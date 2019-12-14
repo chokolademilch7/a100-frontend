@@ -23,6 +23,12 @@ class CustomElement extends LitElement {
     this.label = "";
     this.backgroundColor = "";
     this.color = "";
+    this.addEventListener("touchstart", () => {
+      this.classList.add('clicked');
+    })
+    this.addEventListener("touchend", () => {
+      this.classList.remove('clicked');
+    })
   }
 
   render() {
