@@ -1,32 +1,24 @@
+import '../../components/title';
+import '../../components/status';
+import '../../components/button';
+
 import { LitElement, html } from 'lit-element';
 import style from './index.gen.css';
 
 class CustomElement extends LitElement {
   static get is() {
-    return 'a100-button';
+    return 'a100-page-one';
   }
 
   static get styles() {
     return [style];
   }
 
-  static get properties() {
-    return {
-      label: { type: String, reflect: true }
-    };
-  }
-  
-  constructor() {
-    super();
-    this.label = "";
-  }
-
   render() {
-    const { label } = this;
     return html`
-      <div class="button">
-        ${label}
-      </div>
+      <a100-title label="詳細"></a100-title>
+      <a100-status status="open" font-size="40px"></a100-status>
+      <a100-button label="予約"></a100-button>
     `
   }
 }
