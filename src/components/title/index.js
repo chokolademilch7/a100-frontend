@@ -24,7 +24,9 @@ class CustomElement extends LitElement {
   render() {
     const {label} = this;
     return html`
-      <div>${label}</div>
+      <div class="container">
+        <div class="label">${label}</div>
+      </div>
     `
   }
 }
