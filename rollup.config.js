@@ -15,13 +15,13 @@ export default {
     format: 'esm'
   },
   plugins: [
-    typescript(),
     style({
       include: ['src/components/*/*.css', 'src/pages/*/*.css']
     }),
     resolve({
       browser: true
     }),
+    typescript(),
     commonjs(),
     !production && serve(),
     !production && livereload('public'),

@@ -1,6 +1,8 @@
+import { baseImgPath } from '../../constants';
+import { repeat } from 'lit-html/directives/repeat';
+import { html, LitElement, svg } from 'lit-element';
 import '../../components/button';
-
-import { LitElement, html, svg } from 'lit-element';
+import api from '../../storage';
 import style from './index.gen.css';
 
 class CustomElement extends LitElement {
@@ -16,7 +18,26 @@ class CustomElement extends LitElement {
     return [style];
   }
 
+  static get properties() {
+    return {
+      __imgPaths: { type: Array }
+    }
+  }
+
+  firstUpdated() {
+    api.topContents()
+      .then(res => {
+        this.__imgPaths = res.imgPath;
+      })
+  }
+
+  constructor() {
+    super();
+    this.__imgPaths = []
+  }
+
   render() {
+    const { __imgPaths } = this;
     return html`
       <div class="title">
         <div class="title__main">${this.renderMainTitle()}</div>
@@ -25,37 +46,16 @@ class CustomElement extends LitElement {
       </div>
       <div class="main">
         <div class="main__contents">
-          <div class="main__item">
-            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
-          </div>
-          <div class="main__item">
-            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fagemono.jpg?alt=media&token=a4fa3dd5-4d43-4ef6-8244-b64f7ae3581a">
-          </div>
-          <div class="main__item">
-            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
-          </div>
-        </div>
-        <div class="main__contents">
-          <div class="main__item">
-            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
-          </div>
-          <div class="main__item">
-            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
-          </div>
-          <div class="main__item">
-            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
-          </div>
-        </div>
-        <div class="main__contents">
-          <div class="main__item">
-            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
-          </div>
-          <div class="main__item">
-            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
-          </div>
-          <div class="main__item">
-            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
-          </div>
+          ${repeat(
+            __imgPaths,
+            __imgPath => {
+              return html`
+              <div class="main__item">
+                <img class="main__image" src="${baseImgPath}/${__imgPath}">
+              </div>
+            `
+          })}
+
         </div>
       </div>
       <a href="/store">
