@@ -47,7 +47,7 @@ class CustomElement extends LitElement {
       <a100-title label="一覧"></a100-title>
       <div class="list">
         ${items.map((item) => html`
-          <a href="/sheet">
+          <a class="list-item" href="/sheet">
             <a100-list-item
               label="${item.title}"
               status="${item.status}"

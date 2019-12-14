@@ -22,7 +22,10 @@ class CustomElement extends LitElement {
     return html`
       <a100-title label="詳細"></a100-title>
       <a100-status status="open" font-size="40px"></a100-status>
-      <a100-button label="予約"></a100-button>
+      <a100-button
+        label="予約"
+        a100-back-ground-color="#00ac97"
+      ></a100-button>
     `
   }
 }
