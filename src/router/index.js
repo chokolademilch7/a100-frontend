@@ -15,7 +15,7 @@ const pages = [
   sheet
 ];
 
-let pagesRouters = pages.map(page => {
+const pagesRouters = pages.map(page => {
   let ret = {};
   ret['path'] = page.path;
   ret['component'] = page.is;

@@ -9,7 +9,7 @@
     "clear": "rm -rf public/build",
     "build": "run-s build:css build:js",
     "dev": "run-s clear build:css && run-p debug:build:css debug:build:js",
-    "start": "sirv public",
+    "start": "sirv public --dev --single",
     "debug:build:js": "rollup -c -w",
     "debug:build:css": "postcss \"src/*/*/*.pcss\" --dir . --base . --ext gen.css --verbose -w",
     "build:js": "rollup -c",
