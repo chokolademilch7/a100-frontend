@@ -8,17 +8,16 @@ a100-title {
 .list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 
 .list-item {
+  flex-grow: 1;
   display: block;
   color: $black;
-  flex-grow: 1;
-  margin-bottom: 30px;
+  margin: 0 16px 30px;
   padding: 10px;
-  min-width: 200px;
-  max-width: 290px;
+  flex-basis: 210px;
   box-shadow: 0 2px 5px rgba(0,0,0,0.26);
   border-radius: 10px;
 }
