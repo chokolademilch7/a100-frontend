@@ -15,7 +15,7 @@ class CustomElement extends LitElement {
       label: { type: String, reflect: true }
     };
   }
-  
+
   constructor() {
     super();
     this.label = "";
@@ -24,10 +24,15 @@ class CustomElement extends LitElement {
   render() {
     const { label } = this;
     return html`
-      <div class="button">
+      <div class="button" @click="${this.buttonClick}">
         ${label}
       </div>
     `
+  }
+
+  buttonClick(e) {
+    const button = e.currentTarget;
+    console.log(e.currentTarget);
   }
 }
 
