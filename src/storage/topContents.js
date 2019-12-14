@@ -1,9 +1,10 @@
-export default db => () => {
-  let ret = []
+export default db => () => 
   db.collection('topContents').get()
-    .then(snapShot => snapShot.forEach(doc => {
-      console.log(doc.data());
-      ret = doc.data()
-    }));
-    return ret;
-  }
+    .then(snapShot => {
+      let ret = [];
+      snapShot.forEach(doc => {
+        ret.push(doc.data())
+      })
+      console.log('topC', ret)
+      return ret[0]
+    });
