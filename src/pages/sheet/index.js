@@ -18,16 +18,16 @@ class CustomElement extends LitElement {
     return [style];
   }
 
-  render() {
-    // 一旦データ仮置き
-    const items = [
+  constructor() {
+    super();
+    this.data = [
       {
         title: "1卓",
         status: "open",
       },
       {
         title: "2卓",
-        status: "open",
+        status: "reserved",
       },
       {
         title: "3卓",
@@ -35,18 +35,32 @@ class CustomElement extends LitElement {
       },
       {
         title: "4卓",
-        status: undefined,
+        status: "open",
       },
     ];
+  }
+
+  updated(){
+    const listItem = this.shadowRoot.querySelector('.list-item');
+    listItem.addEventListener("touchstart", () => {
+      listItem.classList.add('clicked');
+    })
+    listItem.addEventListener("touchend", () => {
+      listItem.classList.remove('clicked');
+    })
+  }
+
+  render() {
+    const {data} = this;
 
     return html`
       <a100-title label="一覧"></a100-title>
       <div class="list">
-        ${items.map((item) => html`
+        ${data.map((data) => html`
           <a class="list-item" href="/one">
             <a100-list-item
-              label="${item.title}" 
-              status="${item.status}"
+              label="${data.title}" 
+              status="${data.status}"
             ></a100-list-item>
           </a>
         `)}
