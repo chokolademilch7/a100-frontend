@@ -10,6 +10,10 @@ class CustomElement extends LitElement {
     return 'a100-page-one';
   }
 
+  static get path() {
+    return 'one';
+  }
+
   static get styles() {
     return [style];
   }
