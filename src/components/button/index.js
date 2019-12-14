@@ -18,7 +18,6 @@ class CustomElement extends LitElement {
   
   constructor() {
     super();
-    debugger
     this.label = "";
   }
 

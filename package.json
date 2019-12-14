@@ -11,9 +11,9 @@
     "dev": "run-s clear build:css && run-p debug:build:css debug:build:js",
     "start": "sirv public",
     "debug:build:js": "rollup -c -w",
-    "debug:build:css": "postcss \"src/components/*/*.pcss\" --dir . --base . --ext gen.css --verbose -w",
+    "debug:build:css": "postcss \"src/*/*/*.pcss\" --dir . --base . --ext gen.css --verbose -w",
     "build:js": "rollup -c",
-    "build:css": "postcss \"src/components/*/*.pcss\" --dir . --base . --ext gen.css --verbose"
+    "build:css": "postcss \"src/*/*/*.pcss\" --dir . --base . --ext gen.css --verbose"
   },
   "private": true,
   "devDependencies": {

@@ -22,7 +22,7 @@ const inputDir = (dir, expands) => {
 }
 
 export default {
-  input: inputDir('src/components', ['.js', '.ts']),
+  input: inputDir('src/pages', ['.js', '.ts']),
   output: {
     dir: 'public/build',
     entryFileNames: 'a100-[name].mjs',
@@ -31,7 +31,7 @@ export default {
   plugins: [
     typescript(),
     style({
-      include: ['src/components/*/*.css']
+      include: ['src/components/*/*.css', 'src/pages/*/*.css']
     }),
     resolve({
       browser: true
