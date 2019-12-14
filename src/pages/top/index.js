@@ -1,4 +1,4 @@
-import { baseImgPath } from '../../../constants';
+import baseImgPath from '../../../constants';
 import { repeat } from 'lit-html/directives/repeat';
 import { html, LitElement, svg } from 'lit-element';
 import '../../components/button';
