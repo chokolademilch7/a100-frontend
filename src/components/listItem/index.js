@@ -1,4 +1,4 @@
-import { classMap } from 'lit-html/directives/class-map';
+import '../../components/status';
 import { LitElement, html } from 'lit-element';
 import style from './index.gen.css';
 
@@ -29,13 +29,7 @@ class CustomElement extends LitElement {
     return html`
       <div class="flex">
         <div class="title">${label}</div>
-        <div class="${classMap({
-          'stauts-label': true,
-          'stauts-label--closed': status==="close",
-          'stauts-label--opened': status==="open",
-        })}">
-          ${status}
-        </div>
+        <a100-status status="${status}"></a100-status>
       </div>
     `
   }
