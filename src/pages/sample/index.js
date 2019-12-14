@@ -10,6 +10,10 @@ class CustomElement extends LitElement {
     return 'a100-page-home';
   }
 
+  static get path() {
+    return '/sample';
+  }
+
   static get styles() {
     return [style];
   }

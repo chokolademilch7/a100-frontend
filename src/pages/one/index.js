@@ -11,7 +11,7 @@ class CustomElement extends LitElement {
   }
 
   static get path() {
-    return 'one';
+    return '/one';
   }
 
   static get styles() {

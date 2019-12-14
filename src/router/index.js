@@ -13,6 +13,7 @@ const pages = [
 ];
 
 let pagesRouters = pages.map(page => {
+  console.log(page)
   let ret = {};
   ret['path'] = page.path;
   ret['component'] = page.is;
