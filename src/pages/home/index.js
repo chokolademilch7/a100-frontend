@@ -1,4 +1,6 @@
 import '../../components/button-sample';
+import '../../components/button';
+
 
 import { LitElement, html } from 'lit-element';
 import style from './index.gen.css';
@@ -15,6 +17,7 @@ class CustomElement extends LitElement {
   render() {
     return html`
       <a100-button-sample></a100-button-sample>
+      <a100-button label="testボタン"></a100-button>
     `
   }
 }
