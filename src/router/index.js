@@ -1,15 +1,18 @@
 import { Router } from '@vaadin/router';
 import top from '../pages/top';
-import list from '../pages/list';
+import store from '../pages/store';
 import one from '../pages/one';
 import sample from '../pages/sample';
+import sheet from '../pages/sheet';
+
 
 
 const pages = [
   top,
-  list,
+  store,
   one,
-  sample
+  sample,
+  sheet
 ];
 
 let pagesRouters = pages.map(page => {

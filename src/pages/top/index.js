@@ -58,7 +58,7 @@ class CustomElement extends LitElement {
           </div>
         </div>
       </div>
-      <a href="/list" class="button">
+      <a href="/store" class="button">
         <a100-button label="はじめる"></a100-button>
       </a>
     `
