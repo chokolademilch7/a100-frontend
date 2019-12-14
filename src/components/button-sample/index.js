@@ -1,5 +1,5 @@
 import { LitElement, html } from 'lit-element';
-import style from './button-sample.gen.css';
+import style from './index.gen.css';
 
 class CustomElement extends LitElement {
   static get is() {
