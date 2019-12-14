@@ -17,7 +17,7 @@ class CustomElement extends LitElement {
       color: { type: String, reflect: true, attribute: "a100-color" },
     };
   }
-  
+
   constructor() {
     super();
     this.label = "";
