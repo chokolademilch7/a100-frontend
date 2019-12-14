@@ -19,6 +19,41 @@ class CustomElement extends LitElement {
         <div class="title__sub">${this.renderSubTitle()}</div>
         <div class="title__logo">${this.renderLogo()}</div>
       </div>
+      <div class="main">
+        <div class="main__contents">
+          <div class="main__item">
+            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
+          </div>
+          <div class="main__item">
+            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
+          </div>
+          <div class="main__item">
+            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
+          </div>
+        </div>
+        <div class="main__contents">
+          <div class="main__item">
+            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
+          </div>
+          <div class="main__item">
+            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
+          </div>
+          <div class="main__item">
+            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
+          </div>
+        </div>
+        <div class="main__contents">
+          <div class="main__item">
+            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
+          </div>
+          <div class="main__item">
+            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
+          </div>
+          <div class="main__item">
+            <img class="main__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fmeet.jpg?alt=media&token=7e644a0d-15f2-4bca-9a39-8205fa00eef4">
+          </div>
+        </div>
+      </div>
     `
   }
 
