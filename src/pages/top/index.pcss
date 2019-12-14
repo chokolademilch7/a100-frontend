@@ -1,10 +1,6 @@
 @import "../../tools/helper.pcss";
 @import "../../tools/color.pcss";
 
-.test {
-  color: $orange;
-}
-
 .title {
   margin: 40px 0 30px;
 }
@@ -31,11 +27,14 @@
 }
 
 .main__contents {
-  width: 33%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
 }
 
 .main__item {
-  height: 26%;
+  width: 100px;
+  height: 100px;
   margin: 16px 8px;
   border-radius: 20px;
   overflow: hidden;
