@@ -3,9 +3,8 @@ export default db => () =>
     .then(snapShot => {
       let ret = [];
       snapShot.forEach(doc => {
-        ret.push(doc.data())
+        ret.push(Object.assign({}, doc.data(), {id: doc.id}));
       })
-      console.log('topC', ret)
       return ret;
 });
 
