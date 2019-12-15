@@ -1,8 +1,9 @@
 import '../../components/title';
 import '../../components/listItem';
 
-
 import { LitElement, html } from 'lit-element';
+import { when } from'../../directives/when';
+import api from '../../storage';
 import style from './index.gen.css';
 
 class CustomElement extends LitElement {
@@ -18,30 +19,24 @@ class CustomElement extends LitElement {
     return [style];
   }
 
+  static get properties() {
+    return {
+      __data: { type: Array }
+    };
+  }
+
+  firstUpdated() {
+    api.stores.list().then(r => this.__data = r);
+    api.stores.onSnap(doc => {
+      this.__data = doc.docs.map(doc => {
+        return Object.assign({}, doc.data(), doc.id)});
+    });
+  }
+
+
   constructor() {
     super();
-    this.data = [
-      {
-        title: "一蘭(ラーメン)",
-        status: "open",
-        id: 1,
-      },
-      {
-        title: "会議室-20",
-        status: "open",
-        id:2,
-      },
-      {
-        title: "芥川龍之介",
-        status: "close",
-        id:3,
-      },
-      {
-        title: "お店の名前です",
-        status: "full",
-        id:4,
-      },
-    ]
+    this.__data = []
   }
 
   updated(){
@@ -58,21 +53,29 @@ class CustomElement extends LitElement {
 
 
   render() {
-    const {data} = this;
-
+    const {__data} = this;
+    if(__data.length <= 0){
+      return html``
+    }
     return html`
       <a100-title label="一覧"></a100-title>
-      <div class="list">
-        ${data.map((data) => html`
-          <a class="list-item" href="/sheet?${data.id}">
-            <a100-list-item
-              label="${data.title}"
-              status="${data.status}"
-              >
-            </a100-list-item>
-          </a>
-        `)}
-      </div>
+      ${when(
+        __data.length > 0,
+        () => html`
+          <div class="list">
+            ${__data.map((__data) => html`
+              <a class="list-item" href="/sheet?${__data.id}">
+                <a100-list-item
+                  label="${__data.name}"
+                  status="${__data.status}"
+                  >
+                </a100-list-item>
+              </a>
+            `)}
+          </div>
+        `
+      )}
+      
     `
   }
 }
