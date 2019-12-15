@@ -2,6 +2,7 @@ import '../../components/title';
 import '../../components/listItem';
 
 import { LitElement, html } from 'lit-element';
+import { when } from'../../directives/when';
 import api from '../../storage';
 import style from './index.gen.css';
 
@@ -25,8 +26,10 @@ class CustomElement extends LitElement {
   }
 
   firstUpdated() {
+    api.stores.list().then(r => this.__data = r);
     api.stores.onSnap(doc => {
-      this.__data = doc.docs.map(doc => doc.data());
+      this.__data = doc.docs.map(doc => {
+        return Object.assign({}, doc.data(), doc.id)});
     });
   }
 

@@ -31,7 +31,7 @@ class CustomElement extends LitElement {
 
   firstUpdated() {
     const {__id} = this;
-    api.seats(__id).then(res => {
+    api.seats.list(__id).then(res => {
       this.__data = res
     });
   }
@@ -62,7 +62,7 @@ class CustomElement extends LitElement {
         ${__data.map((data) => html`
           <a class="list-item" href="/one?${data.id}">
             <a100-list-item
-              label="${data.name}" 
+              label="${data.name}"
               status="${data.status}"
             ></a100-list-item>
           </a>
