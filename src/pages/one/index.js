@@ -66,12 +66,17 @@ class CustomElement extends LitElement {
           label = "予約"
           a100-background-color = "#00ac97"
         ></a100-button>
-        <div class="star" @click="${this.starClick}">
-          ${cache(__favorite
-            ? onStar()
-            : offStar()
-          )}
-        </div>
+        ${when(
+          false,
+          () => html`
+            <div class="star" @click="${this.starClick}">
+              ${cache(__favorite
+                ? onStar()
+                : offStar()
+              )}
+            </div>
+          `
+        )}
       </div>
       ${when(
         __isShowModal,
