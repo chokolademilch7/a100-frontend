@@ -25,7 +25,7 @@ class CustomElement extends LitElement {
   }
 
   firstUpdated() {
-    api.stores()
+    api.stores.list()
       .then(res => {
         this.__data = res;
       });

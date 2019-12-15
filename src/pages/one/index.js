@@ -50,7 +50,11 @@ class CustomElement extends LitElement {
   }
 
   render() {
-    const { __data, __favorite, __isShowModal } = this;
+    const { __data } = this;
+    if(!__data){
+      return html``
+    }
+    const { __favorite, __isShowModal } = this;
     const onStar = this.renderOnStar();
     const offStar = this.renderOffStar();
     return html`
