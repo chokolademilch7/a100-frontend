@@ -25,10 +25,9 @@ class CustomElement extends LitElement {
   }
 
   firstUpdated() {
-    api.stores.list()
-      .then(res => {
-        this.__data = res;
-      });
+    api.stores.onSnap(doc => {
+      this.__data = doc.docs.map(doc => doc.data());
+    });
   }
 
 

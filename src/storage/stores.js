@@ -9,6 +9,11 @@ export default db => {
           })
           return ret;
         });
+      },
+
+      onSnap: callback => {
+        return db.collection('stores')
+          .onSnapshot(doc => callback(doc))
       }
   }
 };
