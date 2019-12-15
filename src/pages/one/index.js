@@ -1,7 +1,8 @@
 import '../../components/title';
 import '../../components/status';
 import '../../components/button';
-import {cache} from 'lit-html/directives/cache.js';
+import { when } from '../../directives/when'
+import { cache } from 'lit-html/directives/cache.js';
 import { LitElement, html, svg } from 'lit-element';
 import style from './index.gen.css';
 
@@ -21,6 +22,7 @@ class CustomElement extends LitElement {
   static get properties() {
     return {
       __favorite: { type: Boolean, reflect: true },
+      __isShowModal: { type: Boolean },
     };
   }
 
@@ -30,13 +32,15 @@ class CustomElement extends LitElement {
       store: "一蘭(ラーメン)",
       sheet: "1卓",
       status: "open",
-      favorite: true
+      favorite: true,
+      login: false,
     };
     this.__favorite = false;
+    this.__isShowModal = false;
   }
 
   render() {
-    const { data, __favorite } = this;
+    const { data, __favorite, __isShowModal } = this;
     const onStar = this.renderOnStar();
     const offStar = this.renderOffStar();
     return html`
@@ -55,6 +59,20 @@ class CustomElement extends LitElement {
           )}
         </div>
       </div>
+      ${when(
+        __isShowModal,
+        () => html`
+          <div class="modal" @click="${this.modalClick}">
+          </div>
+          <div class="modalContents">
+            非会員の方はお気に入り機能をご利用いただけません。
+            こちらから登録をおねがします。
+            <a class="modalContents__link" href="/login">
+              <a100-button label="登録"><a100-button>
+            </a>
+          </div>
+        `
+      )}
     `
   }
 
@@ -127,7 +145,15 @@ class CustomElement extends LitElement {
   }
 
   starClick(){
-    this.__favorite = !this.__favorite;
+    if(this.login){
+      this.__favorite = !this.__favorite;
+    } else {
+      this.__isShowModal = !this.__isShowModal;
+    }
+  }
+
+  modalClick() {
+    this.__isShowModal = !this.__isShowModal;
   }
 }
 
