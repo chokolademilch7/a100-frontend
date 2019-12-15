@@ -27,6 +27,8 @@ class CustomElement extends LitElement {
   }
 
   firstUpdated() {
+    api.seats.list('d62k8kto7E02kpm1Fmbi').then();
+    api.stores.list().then(r => console.log(r));
     api.topContents()
       .then(res => {
         this.__imgPaths = res.imgPath;

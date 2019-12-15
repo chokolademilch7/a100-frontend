@@ -4,6 +4,7 @@ import '../../components/button';
 import { when } from '../../directives/when'
 import { cache } from 'lit-html/directives/cache.js';
 import { LitElement, html, svg } from 'lit-element';
+import api from '../../storage';
 import style from './index.gen.css';
 
 class CustomElement extends LitElement {
@@ -23,29 +24,42 @@ class CustomElement extends LitElement {
     return {
       __favorite: { type: Boolean, reflect: true },
       __isShowModal: { type: Boolean },
+      __data: { type: Array },
+      __id: {type: String }
     };
+  }
+
+  onBeforeEnter(event) {
+    this.__id = event.search.slice(1, search.length);
+  }
+
+
+  firstUpdated() {
+    api.one(this.__id)
+      .then(res => {
+        this.__data = res;
+      });
   }
 
   constructor() {
     super();
-    this.data = {
-      store: "一蘭(ラーメン)",
-      sheet: "1卓",
-      status: "open",
-      favorite: true,
-      login: false,
-    };
+    this.__id= '';
+    this.__data = {};
     this.__favorite = false;
     this.__isShowModal = false;
   }
 
   render() {
-    const { data, __favorite, __isShowModal } = this;
+    const { __data } = this;
+    if(!__data){
+      return html``
+    }
+    const { __favorite, __isShowModal } = this;
     const onStar = this.renderOnStar();
     const offStar = this.renderOffStar();
     return html`
-      <a100-title label="${data.store}"></a100-title>
-      <a100-title label="${data.sheet}"></a100-title>
+      <a100-title label="${__data.store}"></a100-title>
+      <a100-title label="${__data.sheet}"></a100-title>
       <div class="kanban">
         <img class="kanban__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fkanban.png?alt=media&token=4ec0ef98-649e-402a-b54c-8b4cf0859144">
         <a100-status status="open" font-size="40px"></a100-status>
