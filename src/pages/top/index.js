@@ -1,5 +1,6 @@
 import { baseImgPath } from '../../../constants';
 import { repeat } from 'lit-html/directives/repeat';
+import { when } from '../../directives/when';
 import { html, LitElement, svg } from 'lit-element';
 import '../../components/button';
 import api from '../../storage';
@@ -61,9 +62,14 @@ class CustomElement extends LitElement {
       <a href="/store" class="button">
         <a100-button label="はじめる"></a100-button>
       </a>
-      <a href="/login" class="button">
-        <a100-button label="ログインする"></a100-button>
-      </a>
+      ${when(
+        false,
+        () => html`
+          <a href="/login" class="button">
+            <a100-button label="ログインする"></a100-button>
+          </a>
+        `
+      )}
     `
   }
 
