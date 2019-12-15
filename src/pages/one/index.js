@@ -42,7 +42,10 @@ class CustomElement extends LitElement {
     return html`
       <a100-title label="${data.store}"></a100-title>
       <div class="sheetTitle">${data.sheet}</div>
-      <a100-status status="open" font-size="40px"></a100-status>
+      <div class="kanban">
+        <img class="kanban__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fkanban.png?alt=media&token=4ec0ef98-649e-402a-b54c-8b4cf0859144">
+        <a100-status status="open" font-size="40px"></a100-status>
+      </div>
       <div class="flex">
         <a100-button
           label = "予約"
@@ -61,7 +64,7 @@ class CustomElement extends LitElement {
   renderOnStar() {
     return () => html`
       ${svg`
-        <svg 
+        <svg
           version="1.0"
           xmlns="http://www.w3.org/2000/svg"
           width="50px"
@@ -95,7 +98,7 @@ class CustomElement extends LitElement {
   renderOffStar() {
     return () => html`
       ${svg`
-        <svg 
+        <svg
           version="1.0"
           xmlns="http://www.w3.org/2000/svg"
           width="50px"
