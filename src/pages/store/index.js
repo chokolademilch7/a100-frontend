@@ -28,8 +28,8 @@ class CustomElement extends LitElement {
   firstUpdated() {
     api.stores.list().then(r => this.__data = r);
     api.stores.onSnap(doc => {
-      this.__data = doc.docs.map(doc => {
-        return Object.assign({}, doc.data(), doc.id)});
+      this.__data = doc.docs.map(d => {
+        return Object.assign({}, d.data(), {id: d.id})});
     });
   }
 
