@@ -45,13 +45,15 @@ class CustomElement extends LitElement {
   }
 
   updated(){
-    const listItem = this.shadowRoot.querySelector('.list-item');
-    listItem.addEventListener("touchstart", () => {
-      listItem.classList.add('clicked');
-    })
-    listItem.addEventListener("touchend", () => {
-      listItem.classList.remove('clicked');
-    })
+    const listItem = this.shadowRoot.querySelectorAll('.list-item');
+    [...listItem].forEach(item => {
+      item.addEventListener("touchstart", () => {
+        item.classList.add('clicked');
+      });
+      item.addEventListener("touchend", () => {
+        item.classList.remove('clicked');
+      });
+    });
   }
 
 
