@@ -12,9 +12,17 @@ export default db => {
           console.log(ret);
           return ret;
       });
+    },
+    one: (storeId, seatId) => {
+      return db.collection('stores')
+        .doc(storeId)
+        .collection('seats')
+        .doc(seatId)
+        .get()
+        .then(doc => {
+          console.log(doc);
+          return doc.data();
+      });
     }
   }
 };
-
-
-
