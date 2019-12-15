@@ -1,3 +1,5 @@
+@import "../../tools/all.pcss";
+
 * {
   display: block;
 }
@@ -11,6 +13,8 @@
   display: flex;
   position: relative;
   justify-content: center;
+  margin-bottom: 20px;
+  animation: fadeIn 4s ease;
 }
 
 .kanban__image {
@@ -19,22 +23,25 @@
 
 a100-status {
   position: absolute;
-  top: 106px;
-  width: 170px;
+  bottom: 18%;
+  width: 50%;
   height: auto;
+  animation: buttonFadeIn 2s ease;
 }
 
 .flex {
   display: flex;
-  margin-top: 16px;
+  max-width: 306px;
+  margin: 0 auto;
+  justify-content: space-between;
+  animation: buttonFadeIn 2s ease;
 }
 
 a100-button {
-  flex-grow: 1;
-  margin-right: 16px;
+  width: 200px;
+  margin: 0 16px;
 }
 
 .star {
-  margin-right: 20px;
   max-width: 50px;
 }

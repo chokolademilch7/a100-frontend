@@ -41,14 +41,14 @@ class CustomElement extends LitElement {
     const offStar = this.renderOffStar();
     return html`
       <a100-title label="${data.store}"></a100-title>
-      <div class="sheetTitle">${data.sheet}</div>
+      <a100-title label="${data.sheet}"></a100-title>
       <div class="kanban">
         <img class="kanban__image" src="https://firebasestorage.googleapis.com/v0/b/hackday2019-a91a3.appspot.com/o/top%2Fkanban.png?alt=media&token=4ec0ef98-649e-402a-b54c-8b4cf0859144">
         <a100-status status="open" font-size="40px"></a100-status>
       </div>
       <div class="flex">
         <a100-button
-          label = "予約"
+          label = "reserve"
           a100-background-color = "#00ac97"
         ></a100-button>
         <div class="star" @click="${this.starClick}">
