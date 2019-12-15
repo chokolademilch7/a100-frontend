@@ -56,17 +56,23 @@ class CustomElement extends LitElement {
     }
     return html`
       <a100-title label="一覧"></a100-title>
-      <div class="list">
-        ${__data.map((__data) => html`
-          <a class="list-item" href="/sheet?${__data.id}">
-            <a100-list-item
-              label="${__data.name}"
-              status="${__data.status}"
-              >
-            </a100-list-item>
-          </a>
-        `)}
-      </div>
+      ${when(
+        __data.length > 0,
+        () => html`
+          <div class="list">
+            ${__data.map((__data) => html`
+              <a class="list-item" href="/sheet?${__data.id}">
+                <a100-list-item
+                  label="${__data.name}"
+                  status="${__data.status}"
+                  >
+                </a100-list-item>
+              </a>
+            `)}
+          </div>
+        `
+      )}
+      
     `
   }
 }
