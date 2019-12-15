@@ -1,9 +1,10 @@
-import '../../components/title';
+import { html, LitElement } from 'lit-element';
 import '../../components/listItem';
-
-
-import { LitElement, html } from 'lit-element';
+import '../../components/title';
+import api from '../../storage';
 import style from './index.gen.css';
+
+
 
 class CustomElement extends LitElement {
   static get is() {
@@ -18,30 +19,26 @@ class CustomElement extends LitElement {
     return [style];
   }
 
+  static get properties() {
+    return {
+      __data: {type: Array}
+    }
+  }
+
+  onBeforeEnter(e) {
+    this.__id = e.search.slice(1, e.search.length);
+  }
+
+  firstUpdated() {
+    const {__id} = this;
+    api.seats(__id).then(res => {
+      this.__data = res
+    });
+  }
+
   constructor() {
     super();
-    this.data = [
-      {
-        title: "1卓",
-        status: "open",
-        id: 1,
-      },
-      {
-        title: "2卓",
-        status: "reserved",
-        id: 2,
-      },
-      {
-        title: "3卓",
-        status: "close",
-        id: 3,
-      },
-      {
-        title: "4卓",
-        status: "open",
-        id: 4,
-      },
-    ];
+    this.__data = []
   }
 
   updated(){
@@ -57,15 +54,15 @@ class CustomElement extends LitElement {
   }
 
   render() {
-    const {data} = this;
+    const {__data} = this;
 
     return html`
       <a100-title label="一覧"></a100-title>
       <div class="list">
-        ${data.map((data) => html`
+        ${__data.map((data) => html`
           <a class="list-item" href="/one?${data.id}">
             <a100-list-item
-              label="${data.title}" 
+              label="${data.name}" 
               status="${data.status}"
             ></a100-list-item>
           </a>
