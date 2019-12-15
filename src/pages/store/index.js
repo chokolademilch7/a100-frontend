@@ -45,13 +45,15 @@ class CustomElement extends LitElement {
   }
 
   updated(){
-    const listItem = this.shadowRoot.querySelector('.list-item');
-    listItem.addEventListener("touchstart", () => {
-      listItem.classList.add('clicked');
-    })
-    listItem.addEventListener("touchend", () => {
-      listItem.classList.remove('clicked');
-    })
+    const listItem = this.shadowRoot.querySelectorAll('.list-item');
+    [...listItem].forEach(item => {
+      item.addEventListener("touchstart", () => {
+        item.classList.add('clicked');
+      });
+      item.addEventListener("touchend", () => {
+        item.classList.remove('clicked');
+      });
+    });
   }
 
 
@@ -62,7 +64,7 @@ class CustomElement extends LitElement {
       <a100-title label="一覧"></a100-title>
       <div class="list">
         ${data.map((data) => html`
-          <a class="list-item" href="/sheet">
+          <a class="list-item" href="/sheet?${data.id}">
             <a100-list-item
               label="${data.title}"
               status="${data.status}"
