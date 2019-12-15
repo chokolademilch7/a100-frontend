@@ -34,6 +34,9 @@ class CustomElement extends LitElement {
     api.seats.list(__id).then(res => {
       this.__data = res
     });
+    api.seats.onSnap(__id, res => {
+      this.__data = res.docs.map(d => Object.assign({}, d.data(), {id: d.id}));
+    });
   }
 
   constructor() {

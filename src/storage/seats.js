@@ -13,6 +13,12 @@ export default db => {
           return ret;
       });
     },
+    onSnap: (storeId, callback) => {
+      return db.collection('stores')
+        .doc(storeId)
+        .collection('seats')
+        .onSnapshot(doc => callback(doc))
+    },
     one: (storeId, seatId) => {
       return db.collection('stores')
         .doc(storeId)
