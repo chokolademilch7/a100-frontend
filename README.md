@@ -1,4 +1,4 @@
-# components-template
+# Suitterアプリ！ 空き席をリアルタイムに可視化することができます！
 
 Quick Start
 ```
@@ -18,13 +18,3 @@ yarn dev
 
 localhost  
 http://localhost:5000
-
-src/components
-componentsの名前で`hoge.js`のノリで書いてください
-
-src/index.js
-作成した`hoge.js`をインポートしてください
-
-public/index.html
-作成したコンポーネントの名前のタグを書いてください  
-`<hoge-button></hoge-button>`
